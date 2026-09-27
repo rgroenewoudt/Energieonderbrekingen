@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Ontvang automatisch een e-mail bij een stroom- of gasstoring of geplande onderbreking op jouw postcode." />
+    <title>@ViewData["Title"] - Storingsalert</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" asp-page="/Index"><span class="bolt" aria-hidden="true">⚡</span> Storingsalert</a>
+    </header>
+
+    <main role="main" class="container">
+        @RenderBody()
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            Data: <a href="https://www.energieonderbrekingen.nl" rel="noopener">energieonderbrekingen.nl</a>
+            (Enexis, Liander, Stedin) · <a asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

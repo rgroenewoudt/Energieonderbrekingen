@@ -1,0 +1,61 @@
+@page
+@model IndexModel
+@using Energieonderbrekingen.Web.Email
+@{
+    ViewData["Title"] = "Storingsmelding per e-mail";
+}
+
+<section class="hero">
+    <h1>Direct weten als de stroom of het gas uitvalt</h1>
+    <p class="lead">
+        Vul je postcode en e-mailadres in. Je krijgt automatisch een e-mail bij een storing
+        of een geplande onderbreking van stroom of gas in jouw buurt, en zodra die weer is opgelost.
+    </p>
+</section>
+
+<section class="card">
+    @if (Model.SubscribedPostalCode is not null)
+    {
+        <div class="notice success" role="status">
+            <strong>Gelukt!</strong> Je ontvangt voortaan meldingen voor postcode
+            @EmailTemplates.FormatPostalCode(Model.SubscribedPostalCode).
+            In elke e-mail staat een link om je weer af te melden.
+        </div>
+    }
+
+    <form method="post" novalidate>
+        <div class="field">
+            <label asp-for="PostalCodeInput"></label>
+            <input asp-for="PostalCodeInput" placeholder="1234 AB" autocomplete="postal-code" maxlength="7" inputmode="text" />
+            <span asp-validation-for="PostalCodeInput" class="error"></span>
+        </div>
+
+        <div class="field">
+            <label asp-for="Email"></label>
+            <input asp-for="Email" type="email" placeholder="naam@voorbeeld.nl" autocomplete="email" />
+            <span asp-validation-for="Email" class="error"></span>
+        </div>
+
+        <div class="hp" aria-hidden="true">
+            <label asp-for="Website">Laat dit veld leeg</label>
+            <input asp-for="Website" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <button type="submit">Aanmelden</button>
+    </form>
+</section>
+
+<section class="info">
+    <div>
+        <h2>Storingen</h2>
+        <p>Onverwachte uitval van stroom of gas, zodra de netbeheerder deze meldt.</p>
+    </div>
+    <div>
+        <h2>Gepland onderhoud</h2>
+        <p>Vooraf bericht over geplande werkzaamheden waarbij je tijdelijk zonder stroom of gas zit.</p>
+    </div>
+    <div>
+        <h2>Opgelost</h2>
+        <p>Een seintje wanneer de onderbreking voorbij is.</p>
+    </div>
+</section>

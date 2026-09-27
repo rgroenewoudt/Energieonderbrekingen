@@ -1,0 +1,88 @@
+[
+  {
+    "version": "1.4",
+    "id": "5ac77d245a7ffb0001ed0551",
+    "source": {
+      "EAN13": "",
+      "id": "4829726",
+      "organisation": "Liander",
+      "origin": "",
+      "removed": "",
+      "timestamp": "2026-09-27T15:58:12+0200"
+    },
+    "network": { "delivery": true, "metering": false, "type": "electricity" },
+    "period": {
+      "plannedBegin": "",
+      "plannedEnd": "",
+      "begin": "2026-09-27T15:03:38+0200",
+      "end": "",
+      "expectedEnd": "2026-09-27T18:03:38+0200"
+    },
+    "planned": false,
+    "maintenance": false,
+    "impact": { "EANs": [], "households": 25, "min": false, "max": true },
+    "location": {
+      "features": {
+        "geometry": { "coordinates": [53.07865, 5.796473], "type": "Point" },
+        "properties": {
+          "city": "Amsterdam",
+          "postalCode": "4321AB;4321AC",
+          "radius": 100,
+          "street": "Dorpstraat"
+        },
+        "type": "Feature"
+      },
+      "type": "FeatureCollection"
+    },
+    "cause": "spontane storing",
+    "component": "kabel",
+    "status": "monteur ter plaatse",
+    "plan": "",
+    "titel": "Stroomstoring in Amsterdam",
+    "message": "Er is sinds 15:03 een stroomstoring in Amsterdam.",
+    "lastUpdated": "2026-09-27T15:58:59.546515+0200"
+  },
+  {
+    "version": "1.4",
+    "id": "66f1a0c35a7ffb0001ab1234",
+    "source": {
+      "EAN13": "",
+      "id": "5120034",
+      "organisation": "Stedin",
+      "origin": "",
+      "removed": "",
+      "timestamp": "2026-09-25T09:00:00+0200"
+    },
+    "network": { "delivery": true, "metering": false, "type": "gas" },
+    "period": {
+      "plannedBegin": "2026-10-06T09:00:00+0200",
+      "plannedEnd": "2026-10-06T13:00:00+0200",
+      "begin": "",
+      "end": "",
+      "expectedEnd": ""
+    },
+    "planned": true,
+    "maintenance": true,
+    "impact": { "EANs": [], "households": 140, "min": false, "max": false },
+    "location": {
+      "features": {
+        "geometry": { "coordinates": [51.92442, 4.477733], "type": "Point" },
+        "properties": {
+          "city": "Rotterdam",
+          "postalCode": "3011",
+          "radius": 250,
+          "street": "Coolsingel"
+        },
+        "type": "Feature"
+      },
+      "type": "FeatureCollection"
+    },
+    "cause": "onderhoud",
+    "component": "gasleiding",
+    "status": "gepland",
+    "plan": "Vervanging van een gasleiding",
+    "titel": "Geplande gasonderbreking in Rotterdam",
+    "message": "Op 6 oktober tussen 09:00 en 13:00 is er geen gas in verband met onderhoud.",
+    "lastUpdated": "2026-09-25T09:00:00+0200"
+  }
+]

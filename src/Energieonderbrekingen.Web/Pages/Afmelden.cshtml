@@ -1,0 +1,34 @@
+@page "/afmelden"
+@model AfmeldenModel
+@using Energieonderbrekingen.Web.Email
+@{
+    ViewData["Title"] = "Afmelden";
+}
+
+<section class="card narrow">
+    <h1>Afmelden</h1>
+
+    @if (Model.Unsubscribed)
+    {
+        <div class="notice success" role="status">
+            Je bent afgemeld@(Model.PostalCode is null ? "" : $" voor postcode {EmailTemplates.FormatPostalCode(Model.PostalCode)}").
+            Je ontvangt geen storingsmeldingen meer.
+        </div>
+        <p><a asp-page="/Index">Terug naar de startpagina</a></p>
+    }
+    else if (Model.InvalidToken)
+    {
+        <div class="notice" role="status">
+            Deze afmeldlink is ongeldig of je bent al afgemeld.
+        </div>
+        <p><a asp-page="/Index">Terug naar de startpagina</a></p>
+    }
+    else
+    {
+        <p>Wil je geen meldingen meer ontvangen voor postcode <strong>@EmailTemplates.FormatPostalCode(Model.PostalCode!)</strong>?</p>
+        <form method="post">
+            <input type="hidden" asp-for="Token" />
+            <button type="submit">Ja, afmelden</button>
+        </form>
+    }
+</section>
